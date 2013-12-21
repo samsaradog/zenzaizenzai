@@ -8,6 +8,7 @@ gem 'rails', '~> 3.2.11'
 gem 'pg', '0.12.2'
 gem 'foundation-rails'
 gem 'jquery-rails'
+gem 'tabulous'
 
 
 group :test, :development do 
