@@ -9,8 +9,15 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-module Tripleworld
+module Zenzai
   class Application < Rails::Application
+    if ENV['RAILS_ENV'] == 'test'
+      require 'simplecov'
+      SimpleCov.start 'rails' do
+        add_filter '/lib/monkey_patches/'
+      end
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

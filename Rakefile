@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Tripleworld::Application.load_tasks
+Zenzai::Application.load_tasks

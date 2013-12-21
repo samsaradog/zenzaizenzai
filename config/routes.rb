@@ -1,4 +1,4 @@
-Tripleworld::Application.routes.draw do
+Zenzai::Application.routes.draw do
   get "pages/home"
   root :to => 'pages#home'
 
