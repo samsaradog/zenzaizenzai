@@ -1,13 +1,12 @@
 require 'spec_helper'
 require 'models/validate_presence_examples'
+require 'support/factory'
 
 describe User do
   it_behaves_like "validate presence", [:email, :password, :password_confirmation]
 
   before do
-    User.create!({:email => "abc@123.com",
-                  :password => "password", 
-                  :password_confirmation => "password"})
+    Factory.create_user
   end
 
   it "creates a valid user" do

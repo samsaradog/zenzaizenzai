@@ -2,6 +2,7 @@ Zenzai::Application.routes.draw do
   devise_for :users
 
   get "pages/home"
+  get "pages/about"
   root :to => 'pages#home'
 
   # The priority is based upon order of creation:

@@ -8,5 +8,10 @@ describe PagesController do
       get :home
       expect(response.body).to match /Welcome/
     end
+
+    it "shows the about page" do
+      get :about
+      expect(response.body).to match /About/
+    end
   end
 end

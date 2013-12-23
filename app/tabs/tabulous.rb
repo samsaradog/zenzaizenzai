@@ -6,9 +6,15 @@ Tabulous.setup do
        link_path     { root_path }
        visible_when  { true }
        enabled_when  { true }
-       active_when   do
-         in_action('any').of_controller('pages') 
-       end
+       active_when   { in_action('home').of_controller('pages') }
+     end
+
+     about_tab do
+       text          { 'About' }
+       link_path     { pages_about_path }
+       visible_when  { true }
+       enabled_when  { true }
+       active_when   { in_action('about').of_controller('pages') }
      end
 
      sign_in_tab do
@@ -16,9 +22,7 @@ Tabulous.setup do
        link_path     { new_user_session_path }
        visible_when  { current_user.nil? }
        enabled_when  { true }
-       active_when  do 
-         in_action('any').of_controller('devise/sessions') 
-       end
+       active_when   { in_action('any').of_controller('devise/sessions') }
      end
 
      sign_up_tab do
@@ -26,9 +30,7 @@ Tabulous.setup do
        link_path     { new_user_registration_path }
        visible_when  { current_user.nil? }
        enabled_when  { true }
-       active_when  do 
-         in_action('any').of_controller('devise/registrations') 
-       end
+       active_when   { in_action('any').of_controller('devise/registrations') }
      end
 
      sign_out_tab do
