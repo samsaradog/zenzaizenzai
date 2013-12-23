@@ -1,13 +1,35 @@
 Tabulous.setup do
 
   tabs do
-    login_tab do
-      text          { 'Login' }
-      link_path     { root_path }
-      visible_when  { true }
-      enabled_when  { true }
-      active_when   { in_action('any').of_controller('pages') }
-    end
+     home_tab do
+       text          { 'Home' }
+       link_path     { root_path }
+       visible_when  { true }
+       enabled_when  { true }
+       active_when   do
+         in_action('any').of_controller('pages') 
+       end
+     end
+
+     sign_in_tab do
+       text          { 'Sign in' }
+       link_path     { new_user_session_path }
+       visible_when  { true }
+       enabled_when  { true }
+       active_when  do 
+         in_action('any').of_controller('devise/sessions') 
+       end
+     end
+
+     sign_up_tab do
+       text          { 'Sign up' }
+       link_path     { new_user_registration_path }
+       visible_when  { true }
+       enabled_when  { true }
+       active_when  do 
+         in_action('any').of_controller('devise/registrations') 
+       end
+     end
   end
 
   customize do

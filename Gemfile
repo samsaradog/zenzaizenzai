@@ -9,6 +9,7 @@ gem 'pg', '0.12.2'
 gem 'foundation-rails'
 gem 'jquery-rails'
 gem 'tabulous'
+gem 'devise'
 
 
 group :test, :development do 
