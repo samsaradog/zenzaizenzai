@@ -1,12 +1,11 @@
-<h2>Resend confirmation instructions</h2>
+<%= render :partial => "devise/shared/header", :locals => {:message => "Resend confirmation instructions"} %>
 
 <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <%= render :partial => "devise/shared/email", :locals => {:f => f} %>
+  <%= render :partial => "devise/shared/submit", :locals => {:f => f, :message => "Resend confirmation instructions"} %>
 
-  <div><%= f.submit "Resend confirmation instructions" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>

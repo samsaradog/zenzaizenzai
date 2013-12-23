@@ -14,7 +14,7 @@ Tabulous.setup do
      sign_in_tab do
        text          { 'Sign in' }
        link_path     { new_user_session_path }
-       visible_when  { true }
+       visible_when  { current_user.nil? }
        enabled_when  { true }
        active_when  do 
          in_action('any').of_controller('devise/sessions') 
@@ -24,11 +24,20 @@ Tabulous.setup do
      sign_up_tab do
        text          { 'Sign up' }
        link_path     { new_user_registration_path }
-       visible_when  { true }
+       visible_when  { current_user.nil? }
        enabled_when  { true }
        active_when  do 
          in_action('any').of_controller('devise/registrations') 
        end
+     end
+
+     sign_out_tab do
+       text          { 'Sign out' }
+       link_path     { destroy_user_session_path }
+       http_verb     :delete
+       visible_when  { current_user.present? }
+       enabled_when  { true }
+       active_when   { false }
      end
   end
 
@@ -49,6 +58,7 @@ Tabulous.setup do
     # :raise_error -- raise an error
     # defaults to :do_not_render
     # when_action_has_no_tab :do_not_render
+    when_action_has_no_tab :render
 
     # whether to always add the HTML markup for subtabs, even if empty
     # defaults to false

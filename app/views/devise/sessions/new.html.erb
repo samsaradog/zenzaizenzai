@@ -1,9 +1,4 @@
-<div class="row">
-  <div class="columns">
-    <h2>Sign in</h2>
-  </div>
-</div>
-
+<%= render :partial => "devise/shared/header", :locals => {:message => "Sign in"} %>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
@@ -17,15 +12,7 @@
     </div>
   <% end -%>
 
-  <div class="row">
-    <div class="columns">
-      <%= f.submit "Sign in", :class => "button small radius" %>
-    </div>
-  </div>
+  <%= render :partial => "devise/shared/submit", :locals => {:f => f, :message => "Sign in"} %>
 <% end %>
 
-  <div class="row">
-    <div class="columns">
-      <%= render "devise/shared/links" %>
-    </div>
-  </div>
+<%= render "devise/shared/links" %>
