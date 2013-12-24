@@ -1,29 +1,58 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%= render :partial => "devise/shared/header", :locals => {:message => "Edit User Profile"} %>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <%= render :partial => "devise/shared/email", :locals => {:f => f} %>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div class="row">
+      <div class="columns">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    </div>
   <% end %>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+    <div class="row">
+      <div class="columns">
+        <%= f.check_box :gets_daily_dharma %> <%= f.label :gets_daily_dharma, "Sign up for Daily Dharma?" %>
+      </div>
+    </div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div class="row">
+    <div class="large-4 columns">
+      <%= f.label :password, "password" %> <i>(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password, :autocomplete => "off" %>
+    </div>
+  </div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+  <%= render :partial => "devise/shared/password_confirmation", :locals => {:f => f} %>
 
-  <div><%= f.submit "Update" %></div>
+  <div class="row">
+    <div class="large-4 columns">
+      <%= f.label :current_password, "current password" %> <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password %>
+    </div>
+  </div>
+
+  <%= render :partial => "devise/shared/submit", :locals => {:f => f, :message => "Update"} %>
 <% end %>
 
-<h3>Cancel my account</h3>
+<hr>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+<div class="row">
+  <div class="columns">
+    <h3>Cancel my account</h3>
+  </div>
+</div>
 
-<%= link_to "Back", :back %>
+<div class="row">
+  <div class="columns">
+    Are you sure you want to leave us? <br /><%= button_to "Cancel my account", registration_path(resource_name), :class => "button alert radius", 
+                                                   :data => { :confirm => "Are you sure?" }, :method => :delete %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns">
+    <%= link_to "Back", :back %>
+  </div>
+</div>

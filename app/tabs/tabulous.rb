@@ -30,7 +30,15 @@ Tabulous.setup do
        link_path     { new_user_registration_path }
        visible_when  { current_user.nil? }
        enabled_when  { true }
-       active_when   { in_action('any').of_controller('devise/registrations') }
+       active_when   { in_action('new').of_controller('devise/registrations') }
+     end
+
+     profile_tab do
+       text          { 'Profile' }
+       link_path     { edit_user_registration_path }
+       visible_when  { current_user.present? }
+       enabled_when  { true }
+       active_when   { in_action('edit').of_controller('devise/registrations') }
      end
 
      sign_out_tab do

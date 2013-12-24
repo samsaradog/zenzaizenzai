@@ -4,6 +4,8 @@ module Factory
       :email => "abc@123.com",
       :password => "password", 
       :password_confirmation => "password",
+      :is_admin => false,
+      :gets_daily_dharma => false,
     }
   end
 

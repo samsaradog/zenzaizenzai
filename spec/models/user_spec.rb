@@ -1,9 +1,13 @@
 require 'spec_helper'
 require 'models/validate_presence_examples'
+require 'models/validate_boolean_examples'
 require 'support/factory'
 
 describe User do
-  it_behaves_like "validate presence", [:email, :password, :password_confirmation]
+  it_behaves_like "validate presence", [:email, 
+                                        :password]
+
+  it_behaves_like "validate boolean", [:is_admin, :gets_daily_dharma]
 
   before do
     Factory.create_user
