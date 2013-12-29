@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131224131216) do
+ActiveRecord::Schema.define(:version => 20131228122851) do
+
+  create_table "jewels", :force => true do |t|
+    t.string "source",   :default => "", :null => false
+    t.string "citation", :default => "", :null => false
+    t.text   "quote",    :default => "", :null => false
+    t.text   "comment",  :default => "", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false

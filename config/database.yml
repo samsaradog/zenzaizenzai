@@ -7,6 +7,7 @@ development:
   adapter: postgresql
   database: zz_development
   username: zenzai
+  encoding: utf8
   password:
   pool: 5
   timeout: 5000
@@ -17,6 +18,7 @@ development:
 test:
   adapter: postgresql
   database: zz_test
+  encoding: utf8
   username: zenzai
   password:
   pool: 5
@@ -25,6 +27,7 @@ test:
 production:
   adapter: postgresql
   database: zz_production
+  encoding: utf8
   username: zenzai
   password:
   pool: 5
