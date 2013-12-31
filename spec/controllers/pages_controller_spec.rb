@@ -13,5 +13,10 @@ describe PagesController do
       get :about
       expect(response.body).to match /About/
     end
+
+    it "shows the support page" do
+      get :support
+      expect(response.body).to match /Support/
+    end
   end
 end

@@ -14,7 +14,23 @@ Tabulous.setup do
        link_path     { pages_about_path }
        visible_when  { true }
        enabled_when  { true }
+       active_when   { a_subtab_is_active }
+     end
+
+     welcome_about_subtab do
+       text          { 'Welcome' }
+       link_path     { pages_about_path }
+       visible_when  { true }
+       enabled_when  { true }
        active_when   { in_action('about').of_controller('pages') }
+     end
+
+     support_about_subtab do
+       text          { 'Support' }
+       link_path     { pages_support_path }
+       visible_when  { true }
+       enabled_when  { true }
+       active_when   { in_action('support').of_controller('pages') }
      end
 
      sign_in_tab do

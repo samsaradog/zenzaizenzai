@@ -16,12 +16,15 @@
       <nav class="top-bar" data-topbar>
         <%= tabs %>
       </nav>
+      <nav>
+        <br />
+        <%= subtabs %>
+      </nav>
     </div>
-    <%= render 'layouts/messages' %>
 
-    <div class="clearfix row">
-      <%= yield %>
-    </div>
+    <%= yield %>
+
+    <%= render 'layouts/messages' %>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
