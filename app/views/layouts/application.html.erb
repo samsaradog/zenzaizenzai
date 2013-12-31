@@ -12,10 +12,16 @@
   </head>
 
   <body>
-    <%= tabs %>
+    <div class="fixed" >
+      <nav class="top-bar" data-topbar>
+        <%= tabs %>
+      </nav>
+    </div>
     <%= render 'layouts/messages' %>
 
-    <%= yield %>
+    <div class="clearfix row">
+      <%= yield %>
+    </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

@@ -57,6 +57,7 @@ Tabulous.setup do
     # :default, :html5, :bootstrap, or :bootstrap_pill
     # or create your own renderer class and reference it here
     # renderer :default
+    renderer :foundation
 
     # whether to allow the active tab to be clicked
     # defaults to true
@@ -75,19 +76,4 @@ Tabulous.setup do
     # render_subtabs_when_empty false
 
   end
-
-  # The following will insert some CSS straight into your HTML so that you
-  # can quickly prototype an app with halfway-decent looking tabs.
-  #
-  # This scaffolding should be turned off and replaced by your own custom
-  # CSS before using tabulous in production.
-  use_css_scaffolding do
-    background_color '#ccc'
-    text_color '#444'
-    active_tab_color '#fff'
-    hover_tab_color '#ddd'
-    inactive_tab_color '#aaa'
-    inactive_text_color '#888'
-  end
-
 end
