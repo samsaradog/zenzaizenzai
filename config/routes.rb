@@ -4,6 +4,7 @@ Zenzai::Application.routes.draw do
   get "pages/home"
   get "pages/about"
   get "pages/support"
+  get "pages/zenzai"
 
   root :to => 'pages#home'
 

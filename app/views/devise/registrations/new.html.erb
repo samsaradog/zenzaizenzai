@@ -1,12 +1,15 @@
-<%= render :partial => "devise/shared/header", :locals => {:message => "Sign up"} %>
+<div class="small-6 small-offset-1 columns">
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%= render :partial => "devise/shared/header", :locals => {:message => "Sign up"} %>
 
-  <%= render :partial => "devise/shared/email_password", :locals => {:f => f} %>
-  <%= render :partial => "devise/shared/password_confirmation", :locals => {:f => f} %>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-  <%= render :partial => "devise/shared/submit", :locals => {:f => f, :message => "Sign up"} %>
-<% end %>
+    <%= render :partial => "devise/shared/email_password", :locals => {:f => f} %>
+    <%= render :partial => "devise/shared/password_confirmation", :locals => {:f => f} %>
 
-<%= render "devise/shared/links" %>
+    <%= render :partial => "devise/shared/submit", :locals => {:f => f, :message => "Sign up"} %>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

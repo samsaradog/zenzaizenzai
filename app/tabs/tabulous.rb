@@ -25,6 +25,14 @@ Tabulous.setup do
        active_when   { in_action('about').of_controller('pages') }
      end
 
+     zenzai_about_subtab do
+       text          { 'Zenzai' }
+       link_path     { pages_zenzai_path }
+       visible_when  { true }
+       enabled_when  { true }
+       active_when   { in_action('zenzai').of_controller('pages') }
+     end
+
      support_about_subtab do
        text          { 'Support' }
        link_path     { pages_support_path }
