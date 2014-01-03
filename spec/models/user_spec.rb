@@ -10,7 +10,7 @@ describe User do
   it_behaves_like "validate boolean", [:is_admin, :gets_daily_dharma]
 
   before do
-    Factory.create_user
+    @user = Factory.create_user
   end
 
   it "creates a valid user" do
@@ -43,5 +43,16 @@ describe User do
     user.valid?
 
     expect(user).to have(1).error_on(:email)
+  end
+
+  context "showing whether the user is an admin" do
+    it "returns false when not an admin" do
+      expect(@user.is_admin?).to be_false
+    end
+
+    it "returns true when an admin" do
+      @user.is_admin = true
+      expect(@user.is_admin?).to be_true
+    end
   end
 end

@@ -6,6 +6,8 @@ Zenzai::Application.routes.draw do
   get "pages/support"
   get "pages/zenzai"
 
+  resources :jewels
+
   root :to => 'pages#home'
 
   # The priority is based upon order of creation:
