@@ -7,7 +7,7 @@ gem 'rails', '~> 3.2.11'
 
 gem 'pg', '0.12.2'
 gem 'foundation-rails'
-gem 'jquery-rails'
+gem 'jquery-rails', "~> 2.2.1"
 gem 'tabulous'
 gem 'devise'
 
@@ -24,7 +24,7 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
+  gem "jquery-datatables-rails", "~> 1.12.2"
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
