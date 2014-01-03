@@ -1,6 +1,10 @@
 <% unless flash[:notice].blank? %>
-  <p class="notice"><%= notice %></p>
+  <div data-alert class="alert-box">
+    <p class="notice"><%= notice %></p>
+  </div>
 <% end %>
 <% unless flash[:alert].blank? %>
-  <p class="alert"><%= alert %></p>
+  <div data-alert class="alert-box warning">
+    <p class="alert"><%= alert %></p>
+  </div>
 <% end %>
