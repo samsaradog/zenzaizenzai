@@ -23,5 +23,28 @@ describe JewelsController do
       get :index
       expect(assigns(:jewels)).to eq([@jewel])
     end
+
+    it "edit retrieves a jewel" do
+      get :edit, :id => @jewel.id
+      expect(assigns(:jewel)).to eq(@jewel)
+    end
+
+    context "#update" do
+      it "updates a jewel" do
+        put :update, :id => @jewel.id, :jewel => {:source => "new"}
+        expect(@jewel.reload.source).to eq("new")
+        expect(response).to redirect_to(jewels_path)
+      end
+
+      it "redirects to the edit page if edit not successful" do
+        Jewel.stub(:find).and_return(@jewel)
+        @jewel.stub(:update_attributes).and_return(false)
+        put :update, :id => @jewel.id, :jewel => {:source => "new"}
+
+        expect(response).to redirect_to(edit_jewel_path(@jewel.id))
+      end
+    end
+
   end
+
 end

@@ -1,0 +1,28 @@
+<h3>Edit Jewel</h3>
+<%= form_for(@jewel, :html => {:class => "small-9 columns"}) do |f| %>
+  <div class="row">
+    <%= f.label :source, "source" %>
+    <%= f.text_field :source %>
+  </div>
+
+  <div class="row">
+    <%= f.label :citation, "citation" %>
+    <%= f.text_field :citation %>
+  </div>
+
+  <div class="row">
+    <%= f.label :quote, "quote" %>
+    <%= f.text_area :quote %>
+  </div>
+
+  <div class="row">
+    <%= f.label :comment, "comment" %>
+    <%= f.text_area :comment %>
+  </div>
+
+  <div class="row">
+    <%= f.submit "Save", :id => "commit", :class => "button tiny radius" %>
+    <%= link_to "Cancel", jewels_path, :id => "cancel", :class => "button tiny radius alert" %>
+  </div>
+
+<% end %>
