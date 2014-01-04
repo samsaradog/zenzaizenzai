@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131228122851) do
+ActiveRecord::Schema.define(:version => 20140104152344) do
+
+  create_table "deliveries", :force => true do |t|
+    t.date    "date",     :null => false
+    t.integer "jewel_id", :null => false
+  end
 
   create_table "jewels", :force => true do |t|
     t.string "source",   :default => "", :null => false
