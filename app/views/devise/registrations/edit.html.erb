@@ -1,8 +1,8 @@
 <div class="small-6 small-offset-1 columns">
   <%= render :partial => "devise/shared/header", :locals => {:message => "Edit User Profile"} %>
 
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
     <%= devise_error_messages! %>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
 
     <%= render :partial => "devise/shared/email", :locals => {:f => f} %>
 

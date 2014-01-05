@@ -14,11 +14,11 @@ describe UserMailer do
   end
 
   it "sets the from address correctly" do
-    expect(@mail.from).to eq([UserMailer::FROM])
+    expect(UserMailer::FROM).to match(@mail.from.first)
   end
 
   it "sets the to address correctly" do
-    expect(@mail.to).to eq([UserMailer::FROM])
+    expect(UserMailer::FROM).to match(@mail.to.first)
   end
 
   it "sets the bcc addresses correctly" do

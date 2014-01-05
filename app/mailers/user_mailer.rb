@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  FROM = "admin@zenzaizenzai.com"
+  FROM = "Lexington Nichiren Buddhist Community <admin@zenzaizenzai.com>"
   default :from => FROM
 
   def daily_dharma(users, jewel_presenter)
