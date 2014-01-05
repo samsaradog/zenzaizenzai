@@ -1,14 +1,11 @@
+require 'presenters/jewel_presenter'
+
 class PagesController < ApplicationController
   def home
-    @jewel = Jewel.all.sample
+    @jewel_presenter = Zenzai::JewelPresenter.new(Jewel.all.sample)
   end
 
-  def about
-  end
-    
-  def support
-  end
-
-  def zenzai
+  %w(about support zenzai).each do |name|
+    define_method(name.to_sym) {}
   end
 end

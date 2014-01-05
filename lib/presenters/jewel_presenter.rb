@@ -4,7 +4,7 @@ module Zenzai
       @jewel = jewel
     end
 
-    %w(id source citation).each do |name|
+    %w(id source citation quote comment).each do |name|
       define_method(name.to_sym) do
         @jewel.send(name.to_sym)
       end
@@ -20,6 +20,10 @@ module Zenzai
 
     def trim_comment(length)
       trim_string(@jewel.comment, length)
+    end
+
+    def html_quote
+      @jewel.quote.gsub("\u2028", "<br>").html_safe
     end
 
     private

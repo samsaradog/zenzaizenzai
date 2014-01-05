@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'presenters/jewel_presenter'
 
 describe PagesController do
   describe "showing pages" do
@@ -15,7 +16,7 @@ describe PagesController do
       end
 
       it "retrieves a jewel" do
-        expect(assigns(:jewel)).to be_a(Jewel)
+        expect(assigns(:jewel_presenter)).to be_a(Zenzai::JewelPresenter)
       end
     end
 
