@@ -55,4 +55,9 @@ describe User do
       expect(@user.is_admin?).to be_true
     end
   end
+
+  it "sets the default for gets_daily_dharma to true" do
+    new_user = User.new
+    expect(new_user.gets_daily_dharma).to be_true
+  end
 end

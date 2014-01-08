@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140104152344) do
+ActiveRecord::Schema.define(:version => 20140108005017) do
 
   create_table "deliveries", :force => true do |t|
     t.date    "date",     :null => false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20140104152344) do
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.boolean  "is_admin",               :default => false, :null => false
-    t.boolean  "gets_daily_dharma",      :default => false, :null => false
+    t.boolean  "gets_daily_dharma",      :default => true,  :null => false
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
