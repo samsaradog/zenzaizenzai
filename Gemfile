@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.1.0"
+
 gem 'rails', '~> 3.2.11'
 
 # Bundle edge Rails instead:
@@ -33,7 +35,7 @@ group :assets do
 end
 
 group :test do
-  gem "simplecov", "~> 0.7.1", {:require=>false}
+  gem "simplecov", "~> 0.8.2", {:require=>false}
 end
 
 
