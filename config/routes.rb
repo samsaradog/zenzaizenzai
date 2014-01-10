@@ -7,6 +7,7 @@ Zenzai::Application.routes.draw do
   get "pages/zenzai"
 
   resources :jewels
+  resources :users, :only => :index
 
   root :to => 'pages#home'
 

@@ -65,12 +65,20 @@ Tabulous.setup do
        active_when   { in_action('edit').of_controller('devise/registrations') }
      end
 
-     jewel_tab do
+     jewels_tab do
        text          { 'Jewels' }
        link_path     { jewels_path }
        visible_when  { current_user.try(:is_admin?) }
        enabled_when  { true }
        active_when   { in_action('index').of_controller('jewels') }
+     end
+
+     users_tab do
+       text          { 'Users' }
+       link_path     { users_path }
+       visible_when  { current_user.try(:is_admin?) }
+       enabled_when  { true }
+       active_when   { in_action('index').of_controller('users') }
      end
 
      sign_out_tab do

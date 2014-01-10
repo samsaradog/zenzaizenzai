@@ -1,8 +1,11 @@
 require "presenters/jewel_presenter"
+require 'verify_admin'
 
 class JewelsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :verify_admin
+
+  include Zenzai::VerifyAdmin
 
   def index
     @jewels = Jewel.all
@@ -20,15 +23,6 @@ class JewelsController < ApplicationController
     else
       flash[:notice] = "Update did not succeed"
       redirect_to edit_jewel_path(params[:id])
-    end
-  end
-
-  private
-  
-  def verify_admin
-    unless current_user.is_admin?
-      flash[:error] = "You must be an admin to access this page"
-      redirect_to root_path
     end
   end
 end
