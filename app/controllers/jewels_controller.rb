@@ -1,4 +1,7 @@
-require "presenters/jewel_presenter"
+require 'presenters/jewel_presenter'
+require 'datatables/jewels_datatable'
+require 'will_paginate'
+
 require 'verify_admin'
 
 class JewelsController < ApplicationController
@@ -8,7 +11,10 @@ class JewelsController < ApplicationController
   include Zenzai::VerifyAdmin
 
   def index
-    @jewels = Jewel.all
+    respond_to do |format|
+      format.html
+      format.json { render :json => Zenzai::JewelsDatatable.new(view_context) }
+    end
   end
 
   def edit

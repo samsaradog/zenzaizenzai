@@ -13,8 +13,8 @@ describe JewelsController do
     end
 
     it "index retrieves a list of jewels" do
-      get :index
-      expect(assigns(:jewels)).to eq([@jewel])
+      get :index, :format => "json"
+      expect(JSON.parse(response.body)["aaData"]).to eq([["abc", "def", "ghi", "jkl", "<a href=\"/jewels/#{@jewel.id}/edit\">Edit</a>"]])
     end
 
     it "edit retrieves a jewel" do

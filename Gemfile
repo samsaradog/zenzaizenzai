@@ -12,6 +12,7 @@ gem 'foundation-rails'
 gem 'jquery-rails', "~> 2.2.1"
 gem 'tabulous'
 gem 'devise'
+gem 'will_paginate'
 
 group :test, :development do 
   gem 'rspec-rails', '2.11.0'
