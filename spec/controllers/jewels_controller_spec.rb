@@ -12,9 +12,17 @@ describe JewelsController do
       @jewel = Factory.create_jewel
     end
 
-    it "index retrieves a list of jewels" do
-      get :index, :format => "json"
-      expect(JSON.parse(response.body)["aaData"]).to eq([["abc", "def", "ghi", "jkl", "<a href=\"/jewels/#{@jewel.id}/edit\">Edit</a>"]])
+    context "#index" do
+      it "index retrieves a list of jewels" do
+        get :index, :format => "json"
+        expect(JSON.parse(response.body)["aaData"]).to eq([["abc", "def", "ghi", "jkl", "<a href=\"/jewels/#{@jewel.id}/edit\">Edit</a>"]])
+      end
+
+      it "retrieves a jewel with a search parameter" do
+        new_jewel = Factory.create_jewel({:source => "xyz"})
+        get :index, :format => "json", :sSearch => "xyz"
+        expect(JSON.parse(response.body)["aaData"]).to eq([["xyz", "def", "ghi", "jkl", "<a href=\"/jewels/#{new_jewel.id}/edit\">Edit</a>"]])
+      end
     end
 
     it "edit retrieves a jewel" do
