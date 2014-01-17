@@ -2,14 +2,9 @@ require 'presenters/jewel_presenter'
 require 'datatables/jewels_datatable'
 require 'will_paginate'
 
-require 'verify_admin'
+require 'admin_controller'
 
-class JewelsController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :verify_admin
-
-  include Zenzai::VerifyAdmin
-
+class JewelsController < AdminController
   def index
     respond_to do |format|
       format.html

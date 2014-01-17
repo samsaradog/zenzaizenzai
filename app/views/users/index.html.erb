@@ -1,19 +1,14 @@
 <div class="small-11 small-centered columns">
   <h2>Users</h2>
-  <table id="users-datatable">
+  <table id="users-datatable" data-source="<%= users_url(format: "json") %>">
     <thead>
       <tr>
         <th>Email Address</th>
         <th>Gets Daily Dharma</th>
+        <th>Confirmed</th>
       </tr>
     </thead>
     <tbody>
-      <% @users.each do |user| %>
-        <tr>
-          <td><%= user.email %></td>
-          <td><%= user.gets_daily_dharma %></td>
-        </tr>
-      <% end %>
     </tbody>
   </table>
 </div>

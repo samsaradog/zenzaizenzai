@@ -1,12 +1,12 @@
-require 'verify_admin'
+require 'datatables/users_datatable'
+require 'admin_controller'
+require 'will_paginate'
 
-class UsersController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :verify_admin
-
-  include Zenzai::VerifyAdmin
-
+class UsersController < AdminController
   def index
-    @users = User.all
+    respond_to do |format|
+      format.html
+      format.json { render :json => Zenzai::UsersDatatable.new(view_context) }
+    end
   end
 end

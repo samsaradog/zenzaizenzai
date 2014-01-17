@@ -1,1 +1,0 @@
-$(document).ready(function(){$("#jewels-datatable").dataTable({bJQueryUI:!0,bProcessing:!0,bServerSide:!0,sAjaxSource:$("#jewels").data("source")}),$("#users-datatable").dataTable()});
