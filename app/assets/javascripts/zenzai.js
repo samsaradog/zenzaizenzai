@@ -8,6 +8,7 @@ function initializeDataTable(tablename){
     bJQueryUI: true,
     bProcessing: true,
     bServerSide: true,
+    bDestroy: true,
     sAjaxSource: $('#' + tablename).data('source')
   });
 }

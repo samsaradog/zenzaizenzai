@@ -18,12 +18,18 @@ class JewelsController < AdminController
 
   def update
     @jewel = Jewel.find(params[:id])
-    if @jewel.update_attributes(params[:jewel])
+    if @jewel.update_attributes(jewel_params)
       flash[:notice] = "Successful Update"
       redirect_to jewels_path
     else
       flash[:notice] = "Update did not succeed"
       redirect_to edit_jewel_path(params[:id])
     end
+  end
+
+  private
+
+  def jewel_params
+    params.require(:jewel).permit(:source, :citation, :quote, :comment)
   end
 end

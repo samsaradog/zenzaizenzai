@@ -1,6 +1,6 @@
 module Zenzai
   class BaseDatatable
-    delegate :params, :h, :to => :@view
+    delegate :params, :to => :@view
 
     def initialize(view, klass)
       @view = view

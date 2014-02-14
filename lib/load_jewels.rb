@@ -16,12 +16,17 @@ module Zenzai
       csv_string = csv_file.read
       CSV.parse(csv_string, :headers => true) do |row|
         row_hash = row.to_hash
-        Jewel.create!(:source => row_hash["Source"],
-                      :citation => row_hash["Citation"],
-                      :quote => row_hash["Quote"],
-                      :comment => row_hash["Comment"])
-
+        create_jewel(row_hash)
       end
+    end
+
+    def create_jewel(row_hash)
+      j = Jewel.new
+      j.source = row_hash["Source"]
+      j.citation = row_hash["Citation"]
+      j.quote = row_hash["Quote"]
+      j.comment = row_hash["Comment"]
+      j.save!
     end
   end
 end

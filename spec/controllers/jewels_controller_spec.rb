@@ -7,8 +7,8 @@ describe JewelsController do
   context "user is an admin" do
     before do
       @user = Factory.create_user({:is_admin => true})
-      controller.stub(:current_user).and_return(@user)
-      controller.stub(:authenticate_user!).and_return(true)
+      allow(controller).to receive(:current_user).and_return(@user)
+      allow(controller).to receive(:authenticate_user!).and_return(true)
       @jewel = Factory.create_jewel
     end
 
@@ -38,8 +38,8 @@ describe JewelsController do
       end
 
       it "redirects to the edit page if edit not successful" do
-        Jewel.stub(:find).and_return(@jewel)
-        @jewel.stub(:update_attributes).and_return(false)
+        allow(Jewel).to receive(:find).and_return(@jewel)
+        allow(@jewel).to receive(:update_attributes).and_return(false)
         put :update, :id => @jewel.id, :jewel => {:source => "new"}
 
         expect(response).to redirect_to(edit_jewel_path(@jewel.id))

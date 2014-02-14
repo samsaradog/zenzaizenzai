@@ -15,8 +15,8 @@ Nichiren,Response to My Lady Nichinyo (Nichinyo Gozen Gohenji),"We do not see a 
 Lotus Sutra,Chapter 17,"He was strenuous and resolute in mind.  He concentrated his mind,  And refrained from indolence  For many hundreds of millions of kalpas.","The Buddha sings these verses to Maitreya Bodhisattva in Chapter Seventeen of the Lotus Sūtra. In this Chapter, the Buddha describes the benefits from practicing generosity, discipline, patience, perseverance, and in these verses, concentration. He then compares these benefits to those which come from understanding the ever-present nature of the Buddha, even for a time no longer than the time it takes to blink. The merits of the latter outshine the former as the sun in a clear sky outshines the stars. When we are assured of the Buddha’s constant presence, helping all of us to become enlightened, we find that we can accomplish far more than we thought possible."
 Nichiren,"Treatise on Opening the Eyes of Buddhist Images, Wooden Statues or Portraits (Mokue Nizō Kaigen no Koto)","Mind is called the spiritual aspect while voice is the physical aspect. Therefore the spiritual aspect reveals the physical aspect. But it is also possible to perceive the mind by listening to the voice. In this case, the physical aspect (voice) reveals the spiritual aspect (mind)","Nichiren wrote this passage in his Treatise on Opening the Eyes of Buddhist Images, Wooden Statues or Portraits (Mokue Nizō Kaigen no Koto). This is one of the many instructions Nichiren gives us for how to read the Lotus Sūtra and find the wisdom of the Buddha within it. It is easy to understand how the intentions we have in our minds guide our words and actions. By cultivating the intention to benefit all beings, rather than just focusing on making ourselves happy, we mold our speech and actions to accord with that intention. Finding the mind behind the voice is more difficult. When we look for the Buddha speaking to us in all situations, especially those which are demanding, we bring ourselves closer to the Buddha’s own mind. We bring our speech and actions into harmony with the world as it is."
 EOF
-    @csv_file = stub("CSV File", :read => @csv_content)
-    Dir.stub(:glob => ["abc"])
+    @csv_file = double("CSV File", :read => @csv_content)
+    allow(Dir).to receive(:glob).and_return(["abc"])
   end
   
   it "loads the csv file" do
@@ -52,7 +52,7 @@ EOF
 
   describe "executing" do
     before do
-      File.stub(:new).with("abc").and_return(@csv_file)
+      allow(File).to receive(:new).with("abc").and_return(@csv_file)
       described_class.new.execute
     end
 

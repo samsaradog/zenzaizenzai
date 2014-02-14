@@ -8,8 +8,8 @@ describe UsersController do
     context "#index" do
       before do
         @user = Factory.create_user({:is_admin => true, :gets_daily_dharma => true})
-        controller.stub(:current_user).and_return(@user)
-        controller.stub(:authenticate_user!).and_return(true)
+        allow(controller).to receive(:current_user).and_return(@user)
+        allow(controller).to receive(:authenticate_user!).and_return(true)
       end
 
       it "index retrieves a list of jewels" do

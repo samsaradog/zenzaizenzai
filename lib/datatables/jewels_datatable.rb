@@ -15,10 +15,10 @@ module Zenzai
       resources.map do |jewel|
         presenter = Zenzai::JewelPresenter.new(jewel)
         [
-          h(presenter.source),
-          h(presenter.trim_citation(20)),
-          h(presenter.trim_quote(20)),
-          h(presenter.trim_comment(20)),
+          presenter.source,
+          presenter.trim_citation(20),
+          presenter.trim_quote(20),
+          presenter.trim_comment(20),
           link_to("Edit", edit_jewel_path(jewel)),
         ]
       end

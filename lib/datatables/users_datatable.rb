@@ -12,9 +12,9 @@ module Zenzai
     def data
       resources.map do |resource|
         [
-          h(resource.email),
-          h(resource.gets_daily_dharma),
-          h(resource.confirmed_at.present?),
+          resource.email,
+          resource.gets_daily_dharma.to_s,
+          resource.confirmed_at.present?.to_s,
         ]
       end
     end

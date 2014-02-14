@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
          :confirmable, :lockable, :timeoutable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me,
-                  :is_admin, :gets_daily_dharma
+#  attr_accessible :email, :password, :password_confirmation, :remember_me,
+#                  :is_admin, :gets_daily_dharma
   # attr_accessible :title, :body
   #
 
