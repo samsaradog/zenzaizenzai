@@ -25,7 +25,8 @@ group :test, :development do
   gem 'guard-rspec', '4.2.6'
   gem 'guard-spork', '1.5.1'
   gem 'childprocess', '0.4.2'
-  gem 'spork', '0.9.2'
+  gem 'spork', '>= 1.0rc0'
+  gem 'spork-rails', '~> 4.0.0'
 end
 
 # Gems used only for assets and not required
