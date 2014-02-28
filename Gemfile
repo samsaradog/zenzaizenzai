@@ -14,12 +14,6 @@ gem 'tabulous'
 gem 'devise'
 gem 'will_paginate'
 
-#To make migration easier
-gem 'rails-observers'
-gem 'actionpack-page_caching'
-gem 'actionpack-action_caching'
-gem 'activerecord-deprecated_finders'
-
 group :test, :development do 
   gem 'rspec-rails', '2.14.1'
   gem 'guard-rspec', '4.2.6'
