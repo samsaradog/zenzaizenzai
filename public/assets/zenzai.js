@@ -1,1 +1,0 @@
-function initializeDataTable(a){$("#"+a+"-datatable").dataTable({bJQueryUI:!0,bProcessing:!0,bServerSide:!0,sAjaxSource:$("#"+a).data("source")})}$(document).ready(function(){initializeDataTable("jewels"),initializeDataTable("users")});
