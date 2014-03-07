@@ -1,5 +1,5 @@
 Zenzai::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "users/registrations"}
 
   get "pages/home"
   get "pages/about"

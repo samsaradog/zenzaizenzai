@@ -18,7 +18,7 @@ group :test, :development do
   gem 'rspec-rails', '2.14.1'
   gem 'guard-rspec', '4.2.6'
   gem 'guard-spork', '1.5.1'
-  gem 'childprocess', '0.4.2'
+  gem 'childprocess', '~> 0.5.1'
   gem 'spork', '>= 1.0rc0'
   gem 'spork-rails', '~> 4.0.0'
 end
@@ -35,6 +35,9 @@ gem "jquery-datatables-rails", "~> 1.12.2"
 gem 'uglifier', '>= 1.0.3'
 
 group :test do
+  gem "cucumber-rails", "~> 1.4.0", :require => false
+  gem "selenium-webdriver", "~> 2.40.0"
+  gem 'database_cleaner'
   gem "simplecov", "~> 0.8.2", {:require=>false}
 end
 

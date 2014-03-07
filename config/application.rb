@@ -10,6 +10,7 @@ module Zenzai
       require 'simplecov'
       SimpleCov.start 'rails' do
         add_filter '/lib/monkey_patches/'
+        add_filter '/lib/tasks'
       end
     end
 
