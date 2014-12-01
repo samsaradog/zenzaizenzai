@@ -1,11 +1,19 @@
 <div class="small-11 small-centered columns">
   <h2 align="center">Welcome to the TripleWorld</h2>
 
-  <div class="panel">
+  <div class="panel callout">
     <p><i><%= @jewel_presenter.html_quote %></i></p>
   </div>
 
-  <div class="panel">
+  <div class="panel callout">
     <p><%= @jewel_presenter.comment %></p>
   </div>
+
+  <hr/>
+  <div class="panel">
+    <p><a href=<%= "#{new_user_registration_path}" %>>Sign Up</a> to receive daily emails with quotes from the Lotus Sutra and Nichiren Shonin.</p>
+    <p>You will receive a confirmation email to make sure we know how to find you. Just follow the instructions in that note.</p>
+    <p>If have any questions, please email the site <a href="mailto:admin@zenzaizenzai.com"> administrator</a>.</p>
+  </div>
+
 </div>
