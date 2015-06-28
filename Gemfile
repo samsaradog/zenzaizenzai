@@ -25,7 +25,7 @@ end
 
 # Gems used only for assets and not required
 # in production environments by default.
-gem 'sass-rails',   '~> 4.0.1'
+gem 'sass-rails',   '~> 5.0.0'
 gem 'coffee-rails', '~> 4.0.1'
 gem "jquery-datatables-rails", "~> 1.12.2"
 
@@ -38,7 +38,7 @@ group :test do
   gem "cucumber-rails", "~> 1.4.0", :require => false
   gem "selenium-webdriver", "~> 2.40.0"
   gem 'database_cleaner'
-  gem "simplecov", "~> 0.8.2", {:require=>false}
+  gem "simplecov", "~> 0.9.1", {:require=>false}
 end
 
 
