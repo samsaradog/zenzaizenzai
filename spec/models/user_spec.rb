@@ -21,43 +21,43 @@ describe User do
     user = User.new(:password => "one")
     user.valid?
 
-    expect(user).to have(1).error_on(:password)
+    expect(user.errors[:password].size).to eq(1)
   end
 
   it "does not accept a badly formatted email address" do
     user = User.new(:email => "abc")
     user.valid?
 
-    expect(user).to have(1).error_on(:email)
+    expect(user.errors[:email].size).to eq(1)
   end
 
   it "makes sure email addresses are unique" do
     user = User.new(:email => "abc@123.com")
     user.valid?
 
-    expect(user).to have(1).error_on(:email)
+    expect(user.errors[:email].size).to eq(1)
   end
 
   it "ignores case when comparing emails" do
     user = User.new(:email => "ABC@123.com")
     user.valid?
 
-    expect(user).to have(1).error_on(:email)
+    expect(user.errors[:email].size).to eq(1)
   end
 
   context "showing whether the user is an admin" do
     it "returns false when not an admin" do
-      expect(@user.is_admin?).to be_false
+      expect(@user.is_admin?).to be_falsy
     end
 
     it "returns true when an admin" do
       @user.is_admin = true
-      expect(@user.is_admin?).to be_true
+      expect(@user.is_admin?).to be_truthy
     end
   end
 
   it "sets the default for gets_daily_dharma to true" do
     new_user = User.new
-    expect(new_user.gets_daily_dharma).to be_true
+    expect(new_user.gets_daily_dharma).to be_truthy
   end
 end

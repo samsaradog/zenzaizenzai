@@ -7,7 +7,7 @@ shared_examples_for 'validate presence' do |fields|
       model.send("#{field.to_sym}=", nil)
       model.valid?
 
-      model.should have_at_least(1).error_on(field.to_sym)
+      expect(model.errors[field.to_sym]).not_to be_empty
     end
   end
 end

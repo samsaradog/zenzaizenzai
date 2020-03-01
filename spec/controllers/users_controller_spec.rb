@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'controllers/redirect_unless_admin_examples'
 
-describe UsersController do
+describe UsersController, type: :controller do
   it_behaves_like "redirect unless admin"
 
   context "user is an admin" do

@@ -6,7 +6,8 @@ shared_examples_for "validate boolean" do |fields|
       model = described_class.new
       model.send("#{field}=".to_sym, nil)
       model.valid?
-      model.should have_at_least(1).errors_on(field.to_sym)
+
+      expect(model.errors[field.to_sym]).not_to be_empty
     end
 
     [true, false].each do |option|    
@@ -14,7 +15,8 @@ shared_examples_for "validate boolean" do |fields|
         model = described_class.new     
         model.send("#{field}=".to_sym, option)
         model.valid?
-        model.errors_on(field.to_sym).should == []
+
+        expect(model.errors[field.to_sym]).to be_empty
       end
     end
   end

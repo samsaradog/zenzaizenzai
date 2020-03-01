@@ -124,7 +124,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  config.remember_for = 2.weeks
+  config.remember_for = 1.day
 
   # If true, extends the user's remember period when remembered via cookie.
   config.extend_remember_period = true
@@ -149,7 +149,7 @@ Devise.setup do |config|
   config.timeout_in = 30.minutes
 
   # If true, expires auth token on session timeout.
-  config.expire_auth_token_on_timeout = false
+  #config.expire_auth_token_on_timeout = false
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.

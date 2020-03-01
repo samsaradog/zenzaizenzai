@@ -12,7 +12,7 @@ module Zenzai
 
     def send_daily_dharma
       UserMailer.daily_dharma(daily_dharma_recipients, 
-                              Zenzai::JewelPresenter.new(current_jewel)).deliver
+                              Zenzai::JewelPresenter.new(current_jewel)).deliver_now
     end
 
     private

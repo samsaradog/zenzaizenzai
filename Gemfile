@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby "2.5.7"
+ruby "2.3.8"
 
-gem 'rails', '~> 4.1.0'
+gem 'rails', '~> 4.2.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -15,8 +15,8 @@ gem 'devise'
 gem 'will_paginate'
 
 group :test, :development do 
-  gem 'rspec-rails', '2.14.1'
-  gem 'guard-rspec', '4.2.6'
+  gem 'rspec-rails', '~> 3.1'
+  gem 'guard-rspec', '4.7.3'
   gem 'guard-minitest'
   gem 'guard-zeus'
   gem 'childprocess', '~> 0.5.1'

@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'presenters/jewel_presenter'
 
-describe PagesController do
+describe PagesController, type: :controller do
   describe "showing pages" do
     render_views
 
