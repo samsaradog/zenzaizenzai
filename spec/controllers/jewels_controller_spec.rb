@@ -14,25 +14,25 @@ describe JewelsController, type: :controller do
 
     context "#index" do
       it "index retrieves a list of jewels" do
-        get :index, :format => "json"
+        get :index, params: { format: "json" }
         expect(JSON.parse(response.body)["aaData"]).to eq([["abc", "def", "ghi", "jkl", "<a href=\"/jewels/#{@jewel.id}/edit\">Edit</a>"]])
       end
 
       it "retrieves a jewel with a search parameter" do
         new_jewel = Factory.create_jewel({:source => "xyz"})
-        get :index, :format => "json", :sSearch => "xyz"
+        get :index, params: { format: "json", sSearch: "xyz" }
         expect(JSON.parse(response.body)["aaData"]).to eq([["xyz", "def", "ghi", "jkl", "<a href=\"/jewels/#{new_jewel.id}/edit\">Edit</a>"]])
       end
     end
 
     it "edit retrieves a jewel" do
-      get :edit, :id => @jewel.id
+      get :edit, params: { id: @jewel.id }
       expect(assigns(:jewel)).to eq(@jewel)
     end
 
     context "#update" do
       it "updates a jewel" do
-        put :update, :id => @jewel.id, :jewel => {:source => "new"}
+        put :update, params: { id: @jewel.id, jewel: {source: "new"} }
         expect(@jewel.reload.source).to eq("new")
         expect(response).to redirect_to(jewels_path)
       end
@@ -40,7 +40,7 @@ describe JewelsController, type: :controller do
       it "redirects to the edit page if edit not successful" do
         allow(Jewel).to receive(:find).and_return(@jewel)
         allow(@jewel).to receive(:update_attributes).and_return(false)
-        put :update, :id => @jewel.id, :jewel => {:source => "new"}
+        put :update, params: { id: @jewel.id, jewel: {source: "new"} }
 
         expect(response).to redirect_to(edit_jewel_path(@jewel.id))
       end

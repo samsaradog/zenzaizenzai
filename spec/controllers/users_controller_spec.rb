@@ -12,13 +12,13 @@ describe UsersController, type: :controller do
     end
 
     it "index retrieves a list of users" do
-      get :index, :format => "json"
+      get :index, params: { format: "json" }
       expect(JSON.parse(response.body)["aaData"]).to eq([["abc@123.com", "true", "false"]])
     end
 
     it "retrieves a user with a search parameter" do
       new_user = Factory.create_user({:email => "xyz@123.com"})
-      get :index, :format => "json", :sSearch => "xyz"
+      get :index, params: { format: "json", sSearch: "xyz" }
       expect(JSON.parse(response.body)["aaData"]).to eq([["xyz@123.com", "false", "false"]])
     end
   end

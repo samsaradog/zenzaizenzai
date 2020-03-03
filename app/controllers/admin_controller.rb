@@ -1,7 +1,7 @@
 require 'authenticated_controller'
 
 class AdminController < AuthenticatedController
-  before_filter :verify_admin
+  before_action :verify_admin
 
   protected
 

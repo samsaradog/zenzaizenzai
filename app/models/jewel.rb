@@ -1,3 +1,3 @@
-class Jewel < ActiveRecord::Base
+class Jewel < ApplicationRecord
   validates_presence_of :source, :citation, :quote, :comment
 end
